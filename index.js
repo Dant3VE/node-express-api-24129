@@ -1,3 +1,8 @@
+//instalamos previamente 'npm i dotenv' y creamos el archivo .env donde se coloca la configuración de la DB
+//Levanta todas las variables del entorno y las deja disponible
+require("dotenv").config();
+
+const exp = require("constants");
 const express = require("express");
 const app = express();
 
@@ -37,6 +42,6 @@ app.get("/productos/:id", (req, res) => {
     //res.send("OK");
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`)); 
